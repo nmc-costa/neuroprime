@@ -1,0 +1,99 @@
+# WARNING: easy install with conda .yml files
+# WARNING: to install these requirements: use pip install -r requirements.txt
+
+# *********essential************
+# python=2.7
+future
+numpy>=1.7.0
+matplotlib>=1.2.0
+scipy>=0.10.1
+#spyder- needs to be conda install
+
+# *** Pyff - BCI
+# python=2.7
+scipy>=0.10.1
+pyqt==4
+# feedbacks
+pygame
+# for windows Microsoft visual C++ compiler is needed: http://aka.ms/vcpython27
+visionegg
+# for windows: you need to install inpout32.dll to use parallel port; go to http://www.highrez.co.uk/Downloads/InpOut32/
+#pyparallel
+# Using LSL for Streaming data and Markers
+pylsl
+
+# *** MUSHU - BCI - #BUG: it seems that mushu needs to be istalled from GIT-read the file README
+# amplifierMushu
+#crypto>=1.0.0 - instead use pycrypto
+pycrypto
+pyusb>=1.0.0a3
+pylsl>=1.10.4
+mushu
+# multiprocessing is necessary to create different processes
+multiprocessing
+#data structure
+pandas
+
+# *** WYRM - BCI
+wyrm
+scikit-learn>=0.15.2
+pyflakes
+coverage
+numpydoc
+nose
+
+# *** MNE - Super EEG Analysis tool - Also has realtime
+#note - mne <0.18 for python 2.7
+NiBabel
+mne==0.17.1
+# pycorder rda client
+lxml
+#another real-time bci package pycnbi - use pip install -e ...
+pycnbi
+
+	
+# *********additional************
+
+# *** james one - GSR and HR amplifiers
+pyqtgraph
+pygatt
+
+# additional mne
+# Picard only for python>=3.5
+# scientific data visualization and plotting in python
+#mayavi
+# representations of neuroimaging data
+#PySurfer
+
+
+# Linters and style guides (optional - spyder already uses pylint for static code analysis)
+#flake8
+
+
+# *** PSYCHOPY
+#Needed on Windows:
+#pip install pypiwin32
+#Microsoft Visual C++ Compiler for Python 2.7 -->http://www.microsoft.com/en-us/download/details.aspx?id=44266
+#Needed on macOS and Windows:
+#pip install pyobjc-core pyobjc-framework-Quartz
+#get the Xcode compiler and SDKs  https://developer.apple.com/  -  command line tools for your version of Xcode and OSX
+
+# required
+numpy scipy matplotlib pandas pyopengl pyglet pillow moviepy lxml openpyxl configobj psychopy
+
+#wxpython
+setuptools
+#windows pip install --upgrade --pre -f https://wxpython.org/Phoenix/snapshot-builds/ wxPython
+
+# to use iohub
+# you need to install the hdf5 lib before installing tables (`brew install hdf5` on mac))
+pyyaml gevent greenlet msgpack-python psutil tables
+
+# better excel file reading (than openpyxl)
+xlrd
+
+# making online connections (e.g. OSF.io)
+requests[security] pyosf
+
+# alternative audio (easier than pyo to install)
+pip install cffi pysounddevice pysoundfile

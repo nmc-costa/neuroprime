@@ -1,0 +1,50 @@
+name: neuroprime
+channels:
+  - defaults
+dependencies:
+  - ca-certificates
+  - certifi
+  - future
+  - intel-openmp
+  - jpeg
+  - libpng
+  - libtiff
+  - mkl
+  - numpy
+  - openssl
+  - pip
+  - pyqt=4.11.4
+  - python=2.7
+  - matplotlib
+  - qt=4.8.7
+  - scipy
+  - setuptools
+  - sip
+  - spyder
+  - scikit-learn
+  - pycrypto
+  - pyflakes
+  - coverage
+  - numpydoc
+  - nose
+  - pandas
+  - pyqtgraph
+  - mayavi
+  - lxml
+  - wheel=0.30.0
+  - zlib
+  - pip:
+    - mushu
+    - pygame
+    - pyparallel
+    - visionegg
+    - wyrm
+    - multiprocessing
+    - mne=0.17.*
+    - pylsl
+    - pyusb
+    - nibabel
+    - psychopy
+    - pygatt
+
+
