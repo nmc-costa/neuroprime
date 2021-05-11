@@ -8,39 +8,37 @@ Simplicity and reusability are the foundation of NeuroPrime package, as is inten
 ## Basic layout
 ![](neuroprime_diagram.png)
 
-Neuroprime was built on Python open source language, synthesizing while using the best parts, we extensively tested, from specific BCI and EEG modules, for signal acquisition, signal processing/classification and signal presentation (diagram above). Signal Acquisition: pycorder (Brain Products, Gilching, Germany), pylsl/lab streaming layer (SCCN, 2014), and mushu (Venthur & Blankertz, 2012). Signal processing/classification: wyrm (Venthur & Blankertz, 2014) and mne (Gramfort et al., 2013). Signal presentation: pyff (Venthur et al., 2010) and psychopy (Peirce, 2007). Additionally, some other important packages, pandas for managing data, matplotlib for graphs, numpy for arrays, scipy for specific algorithms, pygatt for bluethooth connectivity with GSR and HR sensors, and also pyqtgraph for real-time graphical interfaces (Jones, Oliphant, & Peterson, 2001; Mckinney, 2010; Oliphant, 2006). 
+## Overview
 
+NeuroPrime toolbox by @nmc-costa.
 
+NeuroPrime was built on Python open source language, synthesizing while using the best parts, we extensively tested, from specific BCI and EEG modules, for signal acquisition, signal processing/classification and signal presentation (diagram above). Signal Acquisition: pycorder (Brain Products, Gilching, Germany), pylsl/lab streaming layer (SCCN, 2014), and mushu (Venthur & Blankertz, 2012). Signal processing/classification: wyrm (Venthur & Blankertz, 2014) and mne (Gramfort et al., 2013). Signal presentation: pyff (Venthur et al., 2010) and psychopy (Peirce, 2007). Additionally, some other important packages, pandas for managing data, matplotlib for graphs, numpy for arrays, scipy for specific algorithms, pygatt for bluethooth connectivity with GSR and HR sensors, and also pyqtgraph for real-time graphical interfaces (Jones, Oliphant, & Peterson, 2001; Mckinney, 2010; Oliphant, 2006).
 
-Status
-======
+Framework for EEG Neurofeedback in python. Needed for simple experiment depoilment and future online machine learning.
 
-Presentation:
-:   Pyff:
-    :   \#WORKING using package instructions and specific dependencies
-        shown below (compatible with python 2.7)
+In its current version the software is stable.
 
-    Psychopy:
-    :   still in development (\#Not working)
-        :   \#TODO create coder decorator for windows
+Current Specific packages used in:
+Acquisition - Lab Streaming Layer - library pylsl; Actichamp app from LSL; Pycorder RDA client; Mushu for handling with read/write from LSL streams
+Processing/classification - Wyrm to make bridge with Mushu and pyff; MNE for advanced processing.
+Presentation - PYFF and some functions from Psychopy - in the future should intirely update to Psychopy.
 
-Acquisition(read/write)
-:   pylsl:
-    :   Actichamp LSL app:
-        :   \#WORKING in windows
+## Status
+Acquisition(read/write):
+    pylsl:
+        **#WORKING**
+        Actichamp LSL: RDA app #WORKING in windows; #UPDATE to LSL viewer https://pressrelease.brainproducts.com/lsl-viewer/
 
     Mushu:
-    :   \#WORKING with patch for LSL to read/write data Limitions in
-        original package: Specific data Structure LSL driver support
-        lacks robustness (no block buffer, no timeout and error
-        assessement)
+        #WORKING with patch for LSL to read/write data.
+        #LIMITATIONS in original mushu package: Specific data Structure LSL driver support lacks robustness (no block buffer, no timeout and error assessement)
 
 Processing/classification
-:   wyrm:
-    :   \#WORKING
+    wyrm:
+        #WORKING
 
     mne:
-    :   \#WORKING \#BUG installing in mac os - print(end='') gives error
+        #WORKING \#BUG installing in mac os - print(end='') gives error
         for mne=0.18 - run \$python -c 'import mne; mne.sys\_info()' to
         see if mne is working - try also restarting PC
 
@@ -51,34 +49,15 @@ Currently: pybrainctrl environment is in Python 2.7 pyff environment is
 in python 2.7 (For Brain Vison actichamp users, pycorder environment is
 in python 2.6)
 
-\#TODO:
-:   Create GIT Account and commit changes Create a GUI - probably do
-    something like Neuropype/Psychopy or create API to work in
-    Neuropype/Psychopy Environment Variables - UPPERCASE STANDARD. When
-    you're running a script in an automated environment, you can control
-    NeuroPrime with environment variables set before the script runs or
-    within the script. They are set in initbciclass()
+Presentation:
+   Pyff:
+       #WORKING using package instructions and specific dependencies
+       shown below (compatible with python 2.7)
 
-Overview
-========
+   Psychopy:
+       Full implementation still in development (\#Not working)
+       #TODO create coder decorator for windows
 
-The phdproject module by Nuno Costa\_ The phdproject is based on the
-Python programming language and is explicitly designed as open source
-software.
-
-Pakages used in: Acquisition - Lab Streaming Layer; Actichamp app from
-LSL; Pycorder RDA client; library pylsl; Mushu for handling with
-read/write from LSL streams Presentation - PYFF and some functions of
-Psychopy - in the future should intirely update to Psychopy.
-Processing/classification - Wyrm to make bridge with Mushu and pyff; MNE
-for advanced processing.
-
-Framework for EEG Neurofeedback in python. Needed for simple experiment
-depoilment and future online machine learning.
-
-This is very much alpha software under active development and the API is
-subject to change in a rather volatile fashion as improvements,
-corrections, etc. are made.
 
 Installing & Dependedcies
 =========================
