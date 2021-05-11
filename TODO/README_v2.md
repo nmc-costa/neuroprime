@@ -5,6 +5,24 @@ The software will be available as soon as it is published (in the upcoming month
 
 Simplicity and reusability are the foundation of NeuroPrime package, as is intended to be an open source project to be used by the neuroscience community. It is also intended to be a BCI hub that evolves with a synthesis of the best packages the python community has to offer in terms of signal processing, signal presentation and signal acquisition. Therefore, it should provide an easy and simple structure to update and connect new packages within the same design.
 
+## Citations
+If you use NeuroPrime, please cite the folowing articles:
+
+```
+@article{DaCosta2020,
+author = {da Costa, Nuno M.C. and Bicho, Estela G. and Dias, Nuno S.},
+booktitle = {2020 IEEE 8th International Conference on Serious Games and Applications for Health (SeGAH)},
+doi = {10.1109/SeGAH49190.2020.9201841},
+isbn = {978-1-7281-9042-6},
+month = {aug},
+pages = {1--8},
+publisher = {IEEE},
+title = {{Priming with mindfulness affects our capacity to self-regulate brain activity?}},
+url = {https://ieeexplore.ieee.org/document/9201841/},
+year = {2020}
+}
+```
+
 ## Basic layout
 ![](neuroprime_diagram.png)
 
