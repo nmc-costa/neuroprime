@@ -2,34 +2,47 @@
 
 conda env create -f neuroprime.yml
 
-#pip error? 
+#If some packages fail or pip fail, please install all the following(for errors followed the detailed steps):
+pip install pygame pyparallel pypiwin32 mne==0.17.* mushu wyrm pylsl pyusb nibabel
+pip install visionegg multiprocessing
+pip install psychopy --no-deps
+pip install -i https://pypi.anaconda.org/ales-erjavec/simple pyqt4
+pip install matplotlib==2.1.0
+pip install -e neuroprime
+
+
+######Detailed STEPS######
+
+#1- pip error? 
 #see https://stackoverflow.com/questions/35176270/python-2-7-lookuperror-unknown-encoding-cp65001
 set PYTHONIOENCODING=UTF-8
 #install necessary pip packages
 pip install pygame pyparallel pypiwin32 mne==0.17.* mushu wyrm pylsl pyusb nibabel
 
-#visionegg and multiprocessing error?
-#Microsoft Visual C++ 9.0 is required. Get vcpython27.msi : https://web.archive.org/web/20190720195601/http://www.microsoft.com/en-us/download/confirmation.aspx?id=44266
-pip install visionegg 
+#2-visionegg and multiprocessing error?
+#2.1-Install Microsoft Visual C++ 9.0 is required. Get vcpython27.msi : https://web.archive.org/web/20190720195601/http://www.microsoft.com/en-us/download/confirmation.aspx?id=44266
+pip install visionegg multiprocessing
 
-#psychopy error?
+#3-psychopy error?
 #pyo error: 'win64dlls\\win64_pyo_data_files_common\\*.*'
 pip install psychopy --no-deps
-conda install pathlib
-conda install wxpython
+#conda install pathlib #install if missing
+#conda install wxpython #install if missing
+#Pscyhopy will raise some errors about missing packages. Don't bother, in the current version they are not used.
 
-#Missing packages?
+#4-Missing/deprecated packages?
 #remove missing from .yml and search in anaconda.org for ways to install those packages:
-#remove pyqt and qt installed and also matplotlib
-conda uninstall qt
+
+#4.1-If existing, remove pyqt and qt installed (we only need pyqt4):
+#conda uninstall qt
 #pyqt 4.11.4
 pip install -i https://pypi.anaconda.org/ales-erjavec/simple pyqt4
-#qt 4.8.7 ?
 #matplotlib 2.1.0? 
 pip install matplotlib==2.1.0
 
+
 #Final
-6- ADD phdproject as an editable module to your environment
+5- ADD phdproject as an editable module to your environment
     1-add __init__.py to folders that contain scripts you want to use as package
     2-create setup.py (https://stackoverflow.com/questions/6323860/sibling-package-imports/50193944#50193944) - already created
     3-pip install -e phdproject_master  Or use python setup.py develop

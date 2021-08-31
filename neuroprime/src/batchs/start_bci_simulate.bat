@@ -19,26 +19,27 @@ REM This is used if you didtn't put them presistent - however is better to be pe
 REM SET PATH=C:\Users\admin.DDIAS4\Anaconda2;C:\Users\admin.DDIAS4\Anaconda2\Scripts;C:\Users\admin.DDIAS4\Anaconda2\Library\bin;%PATH%
 
 REM ACTIVATE ENV ********
-REM conda activate only works for conda 4.6 and up, for prior use call
-conda activate neuroprime
+REM conda activate only works after setting it up, use call to allways work
+call activate neuroprime
 
 
 
 REM START SIGNAL PRESENTATION (PYFF) ********
 REM EEG
 echo "START EEG FILE STREAM PLAYER CONSOLE"
-start "PYFF CONSOLE" cmd /c call start_pyff_windows.bat
-timeout /T 5 /nobreak >nul
+start "PYFF CONSOLE" cmd /c ""start_pyff_windows.bat""
+timeout /T 10 /nobreak >nul
 
 REM SIMULATE SIGNAL ACQUISITION - REPLAY DATA ********
 REM EEG ***
 echo "START EEG FILE STREAM PLAYER CONSOLE"
 start "FILE STREAM PLAYER CONSOLE" cmd /c python "%src_path%utils\simulate\file_stream_player.py"
-timeout /T 5 /nobreak >nul
+timeout /T 20 /nobreak >nul
+
 REM GSR&HR ***
 echo "START GSR&HR STREAM PLAYER CONSOLE"
-start "GSR&HR simulate" cmd /c call start_gsr_hr_simulate.bat
-timeout /T 5 /nobreak >nul
+start "GSR&HR simulate" cmd /c ""start_gsr_hr_simulate.bat""
+timeout /T 10 /nobreak >nul
 
 
 REM Windows System Timer Tool - in start_gui.bat*****

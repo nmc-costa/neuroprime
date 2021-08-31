@@ -12,10 +12,6 @@ set batchs_path=%script_path%
 echo %batchs_path%
 for %%a in ("%~dp0..\") do set "src_path=%%~fa"
 echo %src_path%
-for %%a in ("%~dp0..\signal_presentation\feedbackapps") do set "feedbackapps_path=%%~fa"
-echo %feedbackapps_path%
-for %%a in ("%~dp0..\..\modules\pyff\src") do set "pyff_path=%%~fa"
-echo %pyff_path%
 
 REM SET ANACONDA PATHs environment (OPTIONAL - if not persistent) *******
 REM This is used if you didtn't put them presistent - however is better to be persistent (go to environment variables)
@@ -23,16 +19,14 @@ REM SET PATH=C:\Users\admin.DDIAS4\Anaconda2;C:\Users\admin.DDIAS4\Anaconda2\Scr
 
 REM ACTIVATE ENV ********
 REM conda activate only works after setting it up, use call to allways work
-REM 1.If main environment has pyff deppendencies
 call activate neuroprime
-REM 2.If not, Create a pyff environment
-REM call activate pyffEVwin
 
-REM change dir to start pyff *****
-cd "%pyff_path%"
 
-REM Start feedbackcontroller *******
-REM use call or start "PYFF CONSOLE" cmd /c (create new console)
-start "PYFF CONSOLE" cmd /c python  FeedbackController.py --protocol=json --additional-feedback-path="%feedbackapps_path%"
+REM SIMULATE SIGNAL ACQUISITION - REPLAY DATA ********
+REM EEG ***
+echo "START EEG FILE STREAM PLAYER CONSOLE"
+start "FILE STREAM PLAYER CONSOLE" cmd /c python "%src_path%utils\simulate\file_stream_player.py"
+timeout /T 5 /nobreak >nul
+
 exit
 

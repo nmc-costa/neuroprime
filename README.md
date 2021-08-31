@@ -41,7 +41,7 @@ number = {16},
 pages = {7725},
 publisher = {Multidisciplinary Digital Publishing Institute},
 title = {{A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Games}},
-url = {https://www.mdpi.com/2076-3417/11/16/7725/htm https://www.mdpi.com/2076-3417/11/16/7725},
+url = {https://www.mdpi.com/2076-3417/11/16/7725},
 volume = {11},
 year = {2021}
 }

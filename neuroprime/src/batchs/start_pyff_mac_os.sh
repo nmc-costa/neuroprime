@@ -1,8 +1,7 @@
 #!/bin/sh
 #activate env 
 #1.If main environment has pyff deppendencies
-#previous to conda 4.6 : source activate neuroprime
-conda activate neuroprime
+source activate neuroprime
 #2.If not Create a pyff environment
 #source activate pyffEV
 

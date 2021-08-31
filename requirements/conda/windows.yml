@@ -17,7 +17,7 @@ dependencies:
   - python=2.7
   - scipy
   - setuptools
-  - si
+  - jupyterlab
   - scikit-learn
   - pycrypto
   - pyflakes

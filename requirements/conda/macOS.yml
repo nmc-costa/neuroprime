@@ -18,6 +18,7 @@ dependencies:
   - scipy
   - setuptools
   - sip
+  - jupyterlab
   - scikit-learn
   - pycrypto
   - pyflakes
