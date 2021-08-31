@@ -17,6 +17,7 @@ Framework for EEG Neurofeedback in python. Needed for simple experiment depoilme
 
 ## Installation
 Please follow requirements folder.
+
 Follow the tutorial jupyter file for installation and testing (TODO)
 
 ## Citations
