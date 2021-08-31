@@ -1,0 +1,10 @@
+[submodule "neuroprime/modules/pyff"]
+	path = neuroprime/modules/pyff
+	url = https://github.com/bbci/pyff.git
+[submodule "neuroprime/modules/LSL-BrainVisionRDA"]
+	path = neuroprime/modules/LSL-BrainVisionRDA
+	url = https://github.com/brain-products/LSL-BrainVisionRDA.git
+[submodule "neuroprime/modules/LSL-actiCHamp"]
+	path = neuroprime/modules/LSL-actiCHamp
+	url = https://github.com/brain-products/LSL-actiCHamp.git
+

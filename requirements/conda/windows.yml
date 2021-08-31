@@ -14,14 +14,10 @@ dependencies:
   - numpy
   - openssl
   - pip
-  - pyqt=4.11.4
   - python=2.7
-  - matplotlib
-  - qt=4.8.7
   - scipy
   - setuptools
-  - sip
-  - spyder
+  - si
   - scikit-learn
   - pycrypto
   - pyflakes
@@ -29,13 +25,13 @@ dependencies:
   - numpydoc
   - nose
   - pandas
-  - pyqtgraph
   - lxml
   - vc
   - vs2008_runtime
-  - wheel=0.30.0
   - wincertstore
   - zlib
+  - pathlib
+  - wxpython
   - pip:
     - mushu
     - pygame
@@ -44,10 +40,11 @@ dependencies:
     - visionegg
     - wyrm
     - multiprocessing
-    - mne=0.17.*
+    - mne==0.17.*
     - pylsl
     - pyusb
     - nibabel
-    - psychopy
-    - pygatt
+    - psychopy --no-deps
+    - matplotlib==2.1.*
+    - -i https://pypi.anaconda.org/ales-erjavec/simple pyqt4
 

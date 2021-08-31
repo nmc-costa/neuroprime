@@ -5,13 +5,13 @@
 # python=2.7
 future
 numpy>=1.7.0
-matplotlib>=1.2.0
+matplotlib==1.2.0
 scipy>=0.10.1
 #spyder- needs to be conda install
 
 # *** Pyff - BCI
 # python=2.7
-scipy>=0.10.1
+#scipy>=0.10.1
 pyqt==4
 # feedbacks
 pygame

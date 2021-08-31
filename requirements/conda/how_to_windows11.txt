@@ -1,0 +1,46 @@
+#HOW TO INSTALL IN WINDOWS 11 
+
+conda env create -f neuroprime.yml
+
+#pip error? 
+#see https://stackoverflow.com/questions/35176270/python-2-7-lookuperror-unknown-encoding-cp65001
+set PYTHONIOENCODING=UTF-8
+#install necessary pip packages
+pip install pygame pyparallel pypiwin32 mne==0.17.* mushu wyrm pylsl pyusb nibabel
+
+#visionegg and multiprocessing error?
+#Microsoft Visual C++ 9.0 is required. Get vcpython27.msi : https://web.archive.org/web/20190720195601/http://www.microsoft.com/en-us/download/confirmation.aspx?id=44266
+pip install visionegg 
+
+#psychopy error?
+#pyo error: 'win64dlls\\win64_pyo_data_files_common\\*.*'
+pip install psychopy --no-deps
+conda install pathlib
+conda install wxpython
+
+#Missing packages?
+#remove missing from .yml and search in anaconda.org for ways to install those packages:
+#remove pyqt and qt installed and also matplotlib
+conda uninstall qt
+#pyqt 4.11.4
+pip install -i https://pypi.anaconda.org/ales-erjavec/simple pyqt4
+#qt 4.8.7 ?
+#matplotlib 2.1.0? 
+pip install matplotlib==2.1.0
+
+#Final
+6- ADD phdproject as an editable module to your environment
+    1-add __init__.py to folders that contain scripts you want to use as package
+    2-create setup.py (https://stackoverflow.com/questions/6323860/sibling-package-imports/50193944#50193944) - already created
+    3-pip install -e phdproject_master  Or use python setup.py develop
+        Note:  it is highly recommended to use pip install . (install) and pip install -e . (developer install) to install packages, as invoking setup.py directly will do the wrong things for many dependencies, such as pull prereleases and incompatible package versions, or make the package hard to uninstall with pip. (https://stackoverflow.com/questions/19048732/python-setup-py-develop-vs-install)
+    4-if using pycnbi package, you should pip install -e path/to/pycnbi
+
+
+
+#If still misbehaves?
+#start from scratch
+conda create -n neuroprime python=2.7
+#then install package to package
+
+

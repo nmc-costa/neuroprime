@@ -1,0 +1,16 @@
+RDA Client for Python 2.5
+Compatible with BrainVision Recorder Version 1.03 or higher
+
+
+26.04.2010
+Improved reading of network data 
+
+
+06.11.2009
+Added consideration of data resolution in example calculation.
+
+
+15.05.2009
+
+Simple Python RDA client example for the RDA tcpip interface of the BrainVision Recorder It reads all the information from the recorded EEG, prints EEG and marker information to the console and calculates and prints the average power every second.
+

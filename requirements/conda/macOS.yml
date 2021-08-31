@@ -15,12 +15,9 @@ dependencies:
   - pip
   - pyqt=4.11.4
   - python=2.7
-  - matplotlib
-  - qt=4.8.7
   - scipy
   - setuptools
   - sip
-  - spyder
   - scikit-learn
   - pycrypto
   - pyflakes
@@ -31,7 +28,6 @@ dependencies:
   - pyqtgraph
   - mayavi
   - lxml
-  - wheel=0.30.0
   - zlib
   - pip:
     - mushu
@@ -40,11 +36,12 @@ dependencies:
     - visionegg
     - wyrm
     - multiprocessing
-    - mne=0.17.*
+    - mne==0.17.*
     - pylsl
     - pyusb
     - nibabel
     - psychopy
     - pygatt
+    - matplotlib==2.1.*
 
 

@@ -1,0 +1,6 @@
+https://github.com/sccn/labstreaminglayer/wiki/ActiChamp.wiki
+
+https://github.com/sccn/labstreaminglayer/wiki/ExampleCode.wiki
+Lower chunk size to 5ms:
+My hardware supports different block/chunk sizes. Which one is best for use with LSL? 
+The chunk size trades off latency vs. network overhead, so we suggest to allow the user to override the value if desired. A good range for the default value is between 5-30 milliseconds of data (resulting in an average latency that is between 2.5-15 ms and an update rate between 200-30 Hz). Shorter chunks make sense in very low-latency control settings, though note that chunks that comprise only a few bytes of data waste some network bandwidth due to the fixed Ethernet packet overhead. Longer chunks can also be used (any duration is permitted, e.g. for sporadic data logging activities), although the longer the chunks are the harder it becomes to perform sample-accurate real-time time-synchronization (specifically, removing the jitter in the chunk time stamps): the longest chunks that can be synchronized in real time would be around 100ms in typical settings.
