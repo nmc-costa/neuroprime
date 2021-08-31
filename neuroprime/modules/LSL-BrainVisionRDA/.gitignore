@@ -1,8 +1,0 @@
-ui_*.h
-BrainVisionRDA/.vs/
-BrainVisionRDA/bin/
-BrainVisionRDA/Debug/
-BrainVisionRDA/Release/
-*.dll
-*.exe
-*.aps
