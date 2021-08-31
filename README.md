@@ -1,7 +1,6 @@
 # NeuroPrime
 A framework for real-time HCI/BCI. Specifically developed for advanced human-computer assisted self-regulation of Neurofeedback.
 
-The software will be available as soon as it is published (in the upcoming months). Consequently, in the upcoming months, if one has an EEG, then one can try out the framework, use it for research, and contribute to its development.
 
 Simplicity and reusability are the foundation of NeuroPrime package, as is intended to be an open source project to be used by the neuroscience community. It is also intended to be a BCI hub that evolves with a synthesis of the best packages the python community has to offer in terms of signal processing, signal presentation and signal acquisition. Therefore, it should provide an easy and simple structure to update and connect new packages within the same design.
 
@@ -16,3 +15,58 @@ NeuroPrime was built on Python open source language, synthesizing while using th
 
 Framework for EEG Neurofeedback in python. Needed for simple experiment depoilment and future online machine learning.
 
+## Installation
+Please follow requirements folder.
+Follow the tutorial jupyter file for installation and testing (TODO)
+
+## Citations
+If you use NeuroPrime for anything We humbly ask you to cite us:
+```bibtex
+@article{Costa2021,
+author = {da Costa, Nuno M. C. and Bicho, Estela and Ferreira, Flora and Vilhena, Estela and Dias, Nuno S.},
+doi = {10.3390/APP11167725},
+file = {::},
+journal = {Applied Sciences 2021, Vol. 11, Page 7725},
+keywords = {assisted Neurofeedback,mindfulness,neurostimulation,randomized,regulation,self,serious games BCI},
+mendeley-groups = {PhD,MeusArtigos},
+month = {aug},
+number = {16},
+pages = {7725},
+publisher = {Multidisciplinary Digital Publishing Institute},
+title = {{A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Games}},
+url = {https://www.mdpi.com/2076-3417/11/16/7725/htm https://www.mdpi.com/2076-3417/11/16/7725},
+volume = {11},
+year = {2021}
+}
+
+@inproceedings{DaCosta2020,
+author = {{Da Costa}, Nuno M.C. and Bicho, Estela G. and Dias, Nuno S.},
+booktitle = {2020 IEEE 8th International Conference on Serious Games and Applications for Health, SeGAH 2020},
+doi = {10.1109/SeGAH49190.2020.9201841},
+isbn = {9781728190426},
+keywords = {Self-regulation,assisted neurofeedback,mindfulness,neuromodulation,neurostimulation},
+mendeley-groups = {MeusArtigos},
+month = {aug},
+pages = {1--8},
+publisher = {IEEE},
+title = {{Priming with mindfulness affects our capacity to self-regulate brain activity?}},
+url = {https://ieeexplore.ieee.org/document/9201841/},
+year = {2020}
+}
+
+@inproceedings{DaCosta2019,
+author = {{Da Costa}, Nuno Miguel and Bicho, Estela and Dias, Nuno},
+booktitle = {Frontiers in Cellular Neuroscience},
+doi = {10.3389/conf.fncel.2019.01.00050},
+issn = {1662-5102},
+mendeley-groups = {MeusArtigos,PhD},
+publisher = {Frontiers Media SA},
+title = {{Does priming subjects, with not only resting state but also with mindfulness or/and guided imagery, affect self-regulation of SMR neurofeedback? Framework to improve brain self-regulation and support the rehabilitation of disorders such as depression, anxiety, stress and attention control.}},
+url = {https://www.frontiersin.org/10.3389/conf.fncel.2019.01.00050/event_abstract},
+volume = {13},
+year = {2019}
+}
+
+
+
+```
