@@ -19,13 +19,13 @@
 """
 ERPHex implements an ERP-based copy speller based on the layout of the Hex-O-Spell.
 In particular, the speller operates in two subsequent steps. First, at Level 1
-(top level), a letter group is chosen (eg, "ABCDE"), and in the step step,
+(top level), a letter group is chosen (eg, "ABCDE"), and in the step step, 
 Level 2, the desired letter is chosen (eg, "A").
 
 If you use or adapt this software for your research, we would be grateful if you
 consider referring to the study for which the speller was developed originally:
 
-Treder, M. S., & Blankertz, B. (C)overt attention and visual speller
+Treder, M. S., & Blankertz, B. (C)overt attention and visual speller 
 design in an ERP-based brain-computer interface. submitted
 
 """
@@ -35,7 +35,7 @@ import sys, os, math
 import pygame
 
 from FeedbackBase.VisualP300 import VisualP300
-from lib.P300Layout.CircularLayout import CircularLayout
+from lib.P300Layout.CircularLayout import CircularLayout 
 from lib.P300VisualElement.Circle import Circle
 from lib.P300VisualElement.Hexagon import Hexagon
 from lib.P300VisualElement.Textrow import Textrow
@@ -44,45 +44,45 @@ from lib.eyetracker import EyeTracker
 
 
 class ERPHex(VisualP300):
-
-    DEFAULT_DISPLAY_RADIUS = 220
+    
+    DEFAULT_DISPLAY_RADIUS = 220        
     DEFAULT_NR_ELEMENTS = 6
-
+    
     # Pre codes
     PRE_WORD = 0
     PRE_COUNTDOWN = 1
     PRE_WAIT = 2
     PREP_TRIAL = 3
-
+    
     # Trigger
     START_TRIAL_LV1 = 100         # Start trial level 1
     START_TRIAL_LV2 = 101         # Start trial level 2
     INVALID = 66               # invalid trial
     HEX_CENTRAL_FIX = 82# central fixation condition
     HEX_TARGET_FIX = 83    # target fixation condition
-
+    
     def init(self):
         VisualP300.init(self)
         self.display_radius = self.DEFAULT_DISPLAY_RADIUS
-        self.nr_elements = self.DEFAULT_NR_ELEMENTS
+        self.nr_elements = self.DEFAULT_NR_ELEMENTS   
         # Graphical settings
         #self.speller_fade_time = 1500   # How long speller is faded in/out
         self.pygame_info = False
         self.bgcolor = 0, 0, 0
         self.screenWidth, self.screenHeight = 1280, 1024
         self.canvasWidth, self.canvasHeight = 660, 820
-        self.fullscreen = True
+        self.fullscreen = True        
         # Hex speller settings
         # Hex level can be 0 (group level) or 1 (element level)
         self.hex_time = 100     # Time for each circle takes to enter the stage
-        # Arrange letters so that the gap ' ' is always pointing to the center of the display
-        self.hex_letters = ("CDE AB", "GHIJ F", "KLMNO ", " PQRST", "Y UVWX", ".< Z,_")
+        # Arrange letters so that the gap ' ' is always pointing to the center of the display 
+        self.hex_letters = ("CDE AB", "GHIJ F", "KLMNO ", " PQRST", "Y UVWX", ".< Z,_")      
         # Words (chosen such that each letter in English alphabet at least one time)
         self.words = ["WINKT", "FJORD", "LUXUS", "SPHINX", "QUARZ", "VODKA", "YACHT", "GEBOT", "MEMME"]
         # Overwritten members of VisualP300
         self.word_time = 50            # How long word is shown (# fps)
         self.word_time_ms = 2500        # word time in ms
-        self.min_dist = 2           # Min number of intermediate flashes bef. a flash is repeated twice
+        self.min_dist = 2           # Min number of intermediate flashes bef. a flash is repeated twice 
         self.flash_duration = 3   # 5 frames @60 Hz = 83ms flash
         self.soa = 5
         self.hex_countdown = [4, 0]  # How many seconds countdown before level 1 and level 2
@@ -90,31 +90,31 @@ class ERPHex(VisualP300):
         self.trial_nr = 1
         # Timing
         self.animation_time = 20        # Length of animation in #frames
-        # Triggers for Level 1 (letter groups) and Level 2 (individual letters)
+        # Triggers for Level 1 (letter groups) and Level 2 (individual letters)  
         self.hex_group_triggers = [ [11, 12, 13, 14, 15, 16] , [21, 22, 23, 24, 25, 26] ]
-        # If a certain group is a target, this value will be added to the trigger
+        # If a certain group is a target, this value will be added to the trigger  
         self.trigger_target_add = 20
-
+        
         # For data logging (-> the data file is opened in pre_mainloop)
         self.datafilename = "Feedbacks\ERP\data\datafile_hex.txt"
         self.datafile = None
 
         self.fps = 30
-
+        
         # Eye tracker
         self.use_eyetracker = False
-        self.et_fixate_center = True   # Whether center or fixdot has to be fixated
+        self.et_fixate_center = True   # Whether center or fixdot has to be fixated   
         self.et_currentxy = (0, 0)      # Current fixation
         self.et_duration = 100
         self.et_targetxy = (100, 100)       # Target coordinates
         self.et_range = 100        # Maximum acceptable distance between target and actual fixation
-        self.et_range_time = 200    # maximum acceptable fixation off the designated point
+        self.et_range_time = 200    # maximum acceptable fixation off the designated point 
 
 
     def before_mainloop(self):
         """
         Get a matrix layout, add circle elements and add groups according
-        to rows and columns.
+        to rows and columns. 
         """
         # There are 7 hex displays, one for the group level and six for the subgroups
         self.hex_displays = [None] * 7
@@ -132,7 +132,7 @@ class ERPHex(VisualP300):
             e.set_states(1, {"textsize":70, "radius":100})
             # Also add a blank version (for animation)
             e.set_states(2, {"textsize":25, "radius":74, "text":"" , "circular_layout":False})
-
+              
             self.add_element(e)
             e.refresh()
             e.update(0)
@@ -158,14 +158,14 @@ class ERPHex(VisualP300):
         self.countrow.pos = (self.screenWidth / 2, self.screenHeight / 2)
         self.countrow.refresh()
         self.countrow.update()
-
+        
         # Add deco to deco group
         if len(self.deco) > 0:
             self.deco_group = pygame.sprite.RenderUpdates(self.deco)
         # Save group display as first display
         self.hex_displays[0] = self.elements
         self.hex_groups[0] = self.groups
-
+        
         for j in range(6):
             # Empty elements bin and start again
             self.elements, self.groups = [], []
@@ -178,11 +178,11 @@ class ERPHex(VisualP300):
                 self.add_element(e)
                 e.refresh()
                 e.update(0)
-
+    
             # Get groups and add them
             for i in range(self.nr_elements):
                 self.add_group(i)
-
+                       
             # Save element display and groups
             self.hex_displays[j + 1] = self.elements
             self.hex_groups[j + 1] = self.groups
@@ -195,7 +195,7 @@ class ERPHex(VisualP300):
         self.sound_invalid = pygame.mixer.Sound("Feedbacks\ERP-speller\winSpaceCritStop.wav")
         # Open file for logging data
         if self.datafilename != "":
-            try:
+            try: 
                 self.datafile = open(self.datafilename, 'a')
             except IOError:
                 print "Cannot open datafile"
@@ -217,9 +217,9 @@ class ERPHex(VisualP300):
         self.et = EyeTracker()
         self.et.start()
 
-
+    
     def pre_trial(self):
-        # Countdown,prepare
+        # Countdown,prepare 
         if self.pre_mode == self.PRE_WORD: self.new_word()
         elif self.pre_mode == self.PREP_TRIAL: self.prep_trial()
         elif self.pre_mode == self.PRE_COUNTDOWN: self.pre_countdown()
@@ -245,12 +245,12 @@ class ERPHex(VisualP300):
             self.pre_mode = self.PREP_TRIAL
             self.current_tick = 0
             self.current_countdown = 0
-
+            
         else:
             self.pre_mode = self.PREP_TRIAL
             self.current_tick = 0
             self.current_countdown = 0
-
+    
     def pre_countdown(self):
         if self.hex_countdown[self.hex_level] > 0:
             if self.current_countdown == 0:
@@ -264,7 +264,7 @@ class ERPHex(VisualP300):
             self.sound_countdown.play()
             pygame.time.wait(1000)
         else: self.pre_mode = self.PRE_WAIT
-
+                
     def wait(self):
         self.screen.blit(self.all_background, self.all_background_rect)
         self.all_elements_group.draw(self.screen)
@@ -283,24 +283,24 @@ class ERPHex(VisualP300):
         # get current word
         word = self.words[self.current_word]
         if self.hex_level == 0:
-            self.elements = self.hex_displays[0]
-            self.groups = self.hex_groups[0]
+            self.elements = self.hex_displays[0] 
+            self.groups = self.hex_groups[0] 
         else:
             # Second level: search the right hex and prepare it
-            # Check to which level-2 group current letter belongs
+            # Check to which level-2 group current letter belongs 
             hex_nr = None
             letter = word[self.current_letter]
             for i in range(len(self.hex_letters)):
                 if letter in self.hex_letters[i]:
                     hex_nr = i
                     break
-            self.elements = self.hex_displays[hex_nr + 1]
-            self.groups = self.hex_groups[hex_nr + 1]
+            self.elements = self.hex_displays[hex_nr + 1]  
+            self.groups = self.hex_groups[hex_nr + 1]   
 
         self.textrow.text = word # Set new word
         self.textrow.highlight = [self.current_letter]  # highlight current letter
         self.textrow.refresh()
-        # Delete old flash sequence & make new random sequence
+        # Delete old flash sequence & make new random sequence 
         self.flash_sequence = []
         # Prequel flashes, allowing repetitions
         random_flash_sequence(self, min_dist=self.min_dist, seq_len=6, repetition=True)
@@ -315,8 +315,8 @@ class ERPHex(VisualP300):
         letter = self.words[self.current_word][self.current_letter]
         hex_nr, target = 0, 0
         while letter not in self.hex_letters[hex_nr]: hex_nr += 1
-        if self.hex_level == 0:
-            target = hex_nr
+        if self.hex_level == 0:  
+            target = hex_nr 
         else:   # hex level 1
             target = self.hex_letters[hex_nr].index(letter)
         # Modify trigget of target by adding a value
@@ -333,8 +333,8 @@ class ERPHex(VisualP300):
             self.et_targetxy = (self.screenWidth / 2, self.screenHeight / 2)
         else:
             # Fixate target
-            self.et_targetxy = self.elements[target].pos
-
+            self.et_targetxy = self.elements[target].pos    
+        
 
     def pre_stimulus(self):
         # Control eye tracker
@@ -350,7 +350,7 @@ class ERPHex(VisualP300):
             cx, cy = self.et_currentxy[0], self.et_currentxy[1]
             dist = math.sqrt(math.pow(tx - cx, 2) + math.pow(ty - cy, 2))
             #self.et_outside = 0
-            # Check if current fixation is outside the accepted range
+            # Check if current fixation is outside the accepted range 
             if dist > self.et_range:
                 #self.et_outside = 1
                 # Check if the off-fixation is beyond temporal limits
@@ -370,7 +370,7 @@ class ERPHex(VisualP300):
             self.send_parallel(self.group_trigger[self.flash_sequence[self.current_flash]])
             self.log_data()
 
-
+                
     def post_trial(self):
         if self.invalid_trial == 1:
             self.current_tick = 0
@@ -412,7 +412,7 @@ class ERPHex(VisualP300):
                 self.animate_letters(self.current_tick)
                 self.clock.tick(self.fps)    # Assure that it's not going too fast
                 self.current_tick += 1
-            else:
+            else:        
                 # Finished, change hex level
                 self.hex_level = (self.hex_level + 1) % 2
                 self.state_finished = True
@@ -493,7 +493,7 @@ class ERPHex(VisualP300):
             pygame.time.wait(100)
         self.flashcount = int(text)
 
-
+        
     def hex_enter(self):
         # Erase and draw on both fore and back screen using flip
         self.screen.blit(self.background, self.background_rect)
@@ -512,11 +512,11 @@ class ERPHex(VisualP300):
         # Draw latest version also onto back screen
         self.deco_group.draw(self.screen)
         self.enter_group.draw(self.screen)
-
+        
     def hex_leave(self, reverse=False):
         """
         Makes the hex elements leave the screen one for one
-        If reverse=True then they leave in reverse order
+        If reverse=True then they leave in reverse order 
         """
         self.leave_group.empty()
         self.leave_group.add(self.elements)
@@ -538,7 +538,7 @@ class ERPHex(VisualP300):
         " Get current position "
         p = t / float(self.animation_time)     # Position parameters
         font = pygame.font.Font(None, int(round(self.end_size * p + self.start_size * (1 - p))))
-        # paint everything
+        # paint everything 
         self.screen.blit(self.background, self.background_rect)
         self.all_elements_group.draw(self.screen)
         if len(self.deco) > 0: self.deco_group.draw(self.screen)
@@ -578,8 +578,8 @@ class ERPHex(VisualP300):
                 items.append(str(self.et_duration))
                 #items.append(str(self.et_outside))
             line = "\t".join(items)
-            self.datalines.append(line)
-
+            self.datalines.append(line) 
+    
     def flush_data(self):
         # Writes the data into the data logfile
         for line in self.datalines:
@@ -588,8 +588,8 @@ class ERPHex(VisualP300):
                 try: self.datafile.write(line2)
                 except IOError:
                     self.logger.warn("Could not write to datafile")
-
-
+        
+    
 if __name__ == "__main__":
     a = ERPHex()
     a.on_init()

@@ -1,27 +1,50 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QCloseEvent>
-#include <QFileDialog>
-#include <QMessageBox>
-#include <boost/shared_ptr.hpp>
-#include <boost/thread.hpp>
+#include <QtWidgets/QMainWindow>
+#include <QtGui/QCloseEvent>
+#include <QtWidgets/QFileDialog>
+#include <QtWidgets/QMessageBox>
+#include <thread>
 #include <string>
 #include <vector>
 
 // LSL API
 //#define LSL_DEBUG_BINDINGS
-#include "../../../LSL/liblsl/include/lsl_cpp.h"
+#include "lsl_cpp.h"
 
 // BrainAmp API
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #include <WinIoCtl.h>
-#include "ActiChamp.h"
+
+#include "LibTalker.h"
 
 
-namespace Ui {
+struct t_AppVersion 
+{
+    int32_t Major;
+    int32_t Minor;
+    int32_t Bugfix;
+};
+
+struct t_AmpConfiguration
+{
+    std::string m_sSerialNumber;
+    bool m_bUseActiveShield;
+    bool m_bFDA;
+    bool m_bUseSampleCtr;
+    int m_nBaseSamplingRate;
+    int m_nSubSampleDivisor;
+    int m_nChunkSize;
+    std::vector<std::string> m_psEegChannelLabels;
+    std::vector<std::string> m_psAuxChannelLabels;
+    bool m_bUnsampledMarkers;
+    bool m_bSampledMarkersEEG;
+};
+
+namespace Ui 
+{
 class MainWindow;
 }
 
@@ -30,39 +53,42 @@ class MainWindow : public QMainWindow
     Q_OBJECT
     
 public:
-    explicit MainWindow(QWidget *parent, const std::string &config_file);
+    explicit MainWindow(QWidget* parent, const char* config_file);
     ~MainWindow();
     
 private slots:
-    // config file dialog ops (from main menu)
-    void load_config_dialog();
-    void save_config_dialog();
 
-    // start the ActiChamp connection
-    void link();
-
-    // close event (potentially disabled)
+    void LoadConfigDialog();
+    void SaveConfigDialog();
+    void Link();
     void closeEvent(QCloseEvent *ev);
+    void SetSamplingRate();
+	//void SetMinChunk();
+    void VersionsDialog();
+    void UpdateChannelLabels();
+    void RefreshDevices();
+    void UpdateChannelLabelsEEG(int);
+    void UpdateChannelLabelsGUI(int);
+    void ChooseDevice(int which);
 
-	// set the min chunk size according sampling rate
-	void setMinChunk();
 
 private:
 
-    // background data reader thread
-	void read_thread(int deviceNumber, int channelCount, int chunkSize, int samplingRate, bool useAUX, bool activeShield, std::vector<std::string> channelLabels);
+	void ReadThread(t_AmpConfiguration ampConfiguration);
+    void AmpSetup(t_AmpConfiguration ampConfiguration);
+    void LoadConfig(const QString &filename);
+    void SaveConfig(const QString &filename);
+    void ToggleGUIEnabled(bool bEnabled);
 
-    // raw config file IO
-    void load_config(const std::string &filename);
-    void save_config(const std::string &filename);
-
-	bool g_unsampledMarkers;
-	bool g_sampledMarkers;
-	bool g_sampledMarkersEEG;
-	
-	bool stop_;											// whether the reader thread is supposed to stop
-    boost::shared_ptr<boost::thread> reader_thread_;	// our reader thread
-
+    t_AppVersion m_AppVersion;
+    LibTalker m_LibTalker;
+    std::vector<std::string> m_psAmpSns;
+    std::vector<int> m_pnUsableChannelsByDevice;
+    bool m_bUseActiveShield;
+    int m_nSamplingRate;
+    bool m_bOverrideAutoUpdate;
+	bool m_bStop;										
+    std::unique_ptr<std::thread>  m_ptReadThread;   	
     Ui::MainWindow *ui;
 };
 

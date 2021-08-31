@@ -15,27 +15,19 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import sys, os
-# Get src path
-sys.path.append("../../")  # appending src folder to the path
-
 import random
 
 import pygame
-from FeedbackBase.PygameFeedback import PygameFeedback
 
-#from lib.P300Aux.P300Functions import wait_for_key,show_message
+from FeedbackBase.PygameFeedback import PygameFeedback
 
 # Notation: Letter UpperLines BottomLines
 TARGETS = ['d11', 'd20', 'd02']
 NON_TARGETS = ['d10', 'd01', 'd21', 'd12', 'd22',
                'p10', 'p01', 'p11', 'p20', 'p02', 'p21', 'p12', 'p22']
 
-
-
 class TestD2(PygameFeedback):
     """Computer version of test D2."""
-
 
     def init(self):
         PygameFeedback.init(self)
@@ -52,56 +44,22 @@ class TestD2(PygameFeedback):
         self.fontheight = 200
         self.key_target = "f"
         self.key_nontarget = "j"
-        self.fullscreen = True
-        if self.fullscreen:
-            self.screenSize = [0, 0]  #use to let it figure out the maximum resolution
-
-
-
 
 
     def pre_mainloop(self):
         PygameFeedback.pre_mainloop(self)
-        w, h = self.screen.get_rect().size
-        #REINIT screensize to match  correct values
-        self.screenSize = [w, h]
-        self.wait_for_key()
-
         self.generate_d2list()
         self.generate_symbols()
         # Initialize the logic
         self.current_index = 0
-        # The errors: e1: errors of omission (missing characters that should have been crossed out,
+        # The errors: e1: errors of omission (missing characters that should have been crossed out, 
         #             e2: errors of commission (crossing out characters that shout have not been crossed out
         self.e1 = 0
         self.e2 = 0
         # And here we go...
-        pygame.time.set_timer(pygame.QUIT, int(self.number_of_symbols * self.seconds_per_symbol * 1000))
+        pygame.time.set_timer(pygame.QUIT, self.number_of_symbols * self.seconds_per_symbol * 1000)
         self.clock.tick()
         self.present_stimulus()
-
-    def wait_for_key(self):
-        """
-        Similar to check key, but if no key was pressed, the
-        function waits for key input
-        """
-        blittext=True
-        if blittext:
-            font = pygame.font.Font(None, self.fontheight)
-            textimage = font.render("Carregue Enter!", True, self.color);
-            textrect = textimage.get_rect(center=(self.screenSize[0] / 2, self.screenSize[1] / 2))
-            self.screen.blit(textimage, textrect)
-            pygame.display.flip()
-        #Important part to solve the fullscreen
-        pygame.event.clear()            # Clear the old events
-        while 1:
-            pygame.time.delay(100)
-            for event in pygame.event.get():
-                if event.type is (pygame.KEYDOWN):
-                    return event.key
-
-
-
 
 
     def post_mainloop(self):
@@ -112,7 +70,7 @@ class TestD2(PygameFeedback):
         error = self.e1 + self.e2
         error_rate = 100. * error / tn
         correctly_processed = tn - error
-        # concentration performance := correctly_processed - e2
+        # concentration performance := correctly_processed - e2 
         cp = correctly_processed - self.e2
         # Average reaction time:
         rt_avg = elapsed_seconds / tn
@@ -226,10 +184,9 @@ class TestD2(PygameFeedback):
         print self.d2list[self.current_index]
         self.screen.fill(self.backgroundColor)
         symbol = self.d2list[self.current_index]
-        self.screen.blit(self.symbol[symbol],
+        self.screen.blit(self.symbol[symbol], 
                          self.symbol[symbol].get_rect(center=self.screen.get_rect().center))
         pygame.display.flip()
-
 
 
 if __name__ == "__main__":

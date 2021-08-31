@@ -41,7 +41,7 @@ TRIAL_START, TRIAL_END = 250, 251
 COUNTDOWN_START, COUNTDOWN_END = 240, 241
 
 # Onset resp. offset of a fixation marker
-FIXATION_START, FIXATION_END = 242, 243
+FIXATION_START,FIXATION_END = 242, 243
 
 # Onset resp. offset of a cue
 CUE_START, CUE_END = 244, 245
@@ -68,5 +68,6 @@ if __name__ == '__main__':
     _tmp.sort()
     for i in range(1, len(_tmp)):
         if _tmp[i][0] == _tmp[i-1][0]:
-            print "Found duplicate triggers (%i) %s and %s" % (_tmp[i][0], _tmp[i-1][1], _tmp[i][1])
+            print "Found duplicate triggers (%i) %s and %s" % (_tmp[i][0],
+                    _tmp[i-1][1], _tmp[i][1])
 

@@ -46,14 +46,12 @@
       </item>
       <item row="1" column="1">
        <widget class="QComboBox" name="cbPort">
+        <property name="toolTip">
+         <string>For now, only Recorder RDA is implemented. To implement RecView's would require significant surgery on this app.</string>
+        </property>
         <item>
          <property name="text">
           <string>51244 (BrainVision Recorder)</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>51254 (BrainVision RecView)</string>
          </property>
         </item>
        </widget>
@@ -111,7 +109,14 @@
     <addaction name="separator"/>
     <addaction name="actionQuit_2"/>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionVersions"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionLoad_Configuration">
@@ -132,6 +137,11 @@
   <action name="actionQuit_2">
    <property name="text">
     <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionVersions">
+   <property name="text">
+    <string>Versions</string>
    </property>
   </action>
  </widget>

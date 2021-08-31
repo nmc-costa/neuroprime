@@ -75,7 +75,7 @@ class Feedback(object):
         You should not override this method, override on_init instead. If you
         must override this method, make sure to call
         ``Feedback.__init__(self, pp)`` before anything else in your overridden
-        __init__ method..
+        __init__ method.
         """
 
         self._data = None

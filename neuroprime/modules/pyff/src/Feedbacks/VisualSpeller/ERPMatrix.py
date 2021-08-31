@@ -16,7 +16,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 #
 
-"""
+""" 
 Current target triggers range from 11-21, first rows, then columns
 11: first row (top)
 12: secndon row
@@ -26,26 +26,25 @@ Current target triggers range from 11-21, first rows, then columns
 19...21
 
 Target rows + columns get a value 20 higher than the original value
-For instance, for target letter A (first row, first columns), we
-will have the values 31 and 37 (instead of 11 and 17)
+For instance, for target letter A (first row, first columns), we 
+will have the values 31 and 37 (instead of 11 and 17) 
 
 If you use or adapt this software for your research, we would be grateful if you
 consider referring to the study for which the speller was developed originally:
 
-Treder, M. S., & Blankertz, B. (C)overt attention and visual speller
+Treder, M. S., & Blankertz, B. (C)overt attention and visual speller 
 design in an ERP-based brain-computer interface. submitted
 
 """
 
 
 import sys, math
-# Get src path
-sys.path.append("../../")  # appending src folder to the path
+
 import pygame
 
-from FeedbackBase.VisualP300 import VisualP300  # Import P300 superclass
-from lib.P300Layout.MatrixLayout import MatrixLayout # Import spatial layout
-from lib.P300VisualElement.Text import Text # Import Text element for displaying the letters
+from FeedbackBase.VisualP300 import VisualP300  # Import P300 superclass 
+from lib.P300Layout.MatrixLayout import MatrixLayout # Import spatial layout 
+from lib.P300VisualElement.Text import Text # Import Text element for displaying the letters 
 from lib.P300VisualElement.Circle import Circle # Import Circle element for displaying a fixation dot
 from lib.P300VisualElement.Textrow import Textrow # Import textrow element for displaying the word to-be-copied
 from lib.P300Aux.P300Functions import *
@@ -53,7 +52,7 @@ from lib.eyetracker import EyeTracker
 
 
 class ERPMatrix(VisualP300):
-
+    
     # Dimensions of the matrix
     DEFAULT_ROWS = 6
     DEFAULT_COLS = 5
@@ -71,7 +70,7 @@ class ERPMatrix(VisualP300):
     INVALID = 66               # invalid trial
     MATRIX_CENTRAL_FIX = 80# central fixation condition
     MATRIX_TARGET_FIX = 81   # target fixation condition
-
+    
     def init(self):
         VisualP300.init(self)
         # Graphical settings
@@ -89,43 +88,43 @@ class ERPMatrix(VisualP300):
         # Speller settings
         self.rows = self.DEFAULT_ROWS
         self.cols = self.DEFAULT_COLS
-        self.matrix_width = self.DEFAULT_MATRIX_WIDTH
+        self.matrix_width = self.DEFAULT_MATRIX_WIDTH 
         self.matrix_height = self.DEFAULT_MATRIX_HEIGHT
         self.letters = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ_,.<")
         self.countdown = 2          # countdown length in seconds
         # Overwritten members of VisualP300
         self.word_time = 50            # How long word is shown (#fps)
         self.word_time_ms = 2500        # word time in ms
-        self.min_dist = 2           # Min number of intermediate flashes bef. a flash is repeated twice
+        self.min_dist = 2           # Min number of intermediate flashes bef. a flash is repeated twice 
         self.flash_duration = 3
         self.soa = 5
         self.countdown = 4
         self.nr_sequences = 10
         self.trial_nr = 1
 
-        self.fps = 30
-        # Triggers for Level 1 (letter groups) and Level 2 (individual letters)
+        self.fps = 30       
+        # Triggers for Level 1 (letter groups) and Level 2 (individual letters)  
         self.matrix_trigger = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
-        # If a certain group is a target, this value will be added to the trigger
+        # If a certain group is a target, this value will be added to the trigger  
         self.trigger_target_add = 20
-
+        
         # For data logging (-> the data file is opened in pre_mainloop)
-        self.datafilename = "Feedbacks\ERP\data\datafile_matrix.txt"
+        self.datafilename = "Feedbacks\ERP\data\datafile_matrix.txt"       
         self.datafile = None
         # Eye tracker
         self.use_eyetracker = False
-        self.et_fixate_center = True   # Whether center or fixdot has to be fixated
+        self.et_fixate_center = True   # Whether center or fixdot has to be fixated   
         self.et_currentxy = (0, 0)      # Current fixation
         self.et_duration = 100
         self.et_targetxy = (0, 0)       # Target coordinates
         self.et_range = 100        # Maximal acceptable distance between target and actual fixation
-        self.et_range_time = 200    # maximum acceptable fixation off the designated point
+        self.et_range_time = 200    # maximum acceptable fixation off the designated point 
         #self.et_outside = 0          # Whether current fixation is inside designated area
 
     def before_mainloop(self):
         """
-        Instantiate a matrix layout, add text elements and add
-        groups according to rows and columns.
+        Instantiate a matrix layout, add text elements and add 
+        groups according to rows and columns. 
         """
         # Get layout & add elements
         self.layout = MatrixLayout(size=(self.matrix_width, self.matrix_height), rows=self.rows, cols=self.cols)
@@ -164,7 +163,7 @@ class ERPMatrix(VisualP300):
             self.deco_group = pygame.sprite.RenderUpdates(self.deco)
         # Open file for logging data
         if self.datafilename != "":
-            try:
+            try: 
                 self.datafile = open(self.datafilename, 'a')
             except IOError:
                 print "Cannot open datafile"
@@ -191,14 +190,14 @@ class ERPMatrix(VisualP300):
         self.et = EyeTracker()
         self.et.start()
 
-
+    
     def pre_trial(self):
         # Countdown,prepare
         if self.pre_mode == self.PRE_WORD: self.new_word()
         elif self.pre_mode == self.PREP_TRIAL: self.prep_trial()
         elif self.pre_mode == self.PRE_COUNTDOWN: self.pre_countdown()
         else: self.wait()
-
+        
     def new_word(self):
         # If we just started a new word: present it
         if self.current_letter == 0 and self.word_time > 0:
@@ -223,7 +222,7 @@ class ERPMatrix(VisualP300):
             self.pre_mode = self.PREP_TRIAL
             self.current_tick = 0
             self.current_countdown = 0
-
+            
     def pre_countdown(self):
         if self.countdown > 0:
             if self.current_countdown == 0:
@@ -238,14 +237,14 @@ class ERPMatrix(VisualP300):
             pygame.time.wait(1000)
         else: self.pre_mode = self.PRE_WAIT
 
-
+            
     def wait(self):
         " Send trigger & wait 1 second"
         self.send_parallel(self.START_TRIAL)
         pygame.time.delay(1000)
         self.state_finished = True
 
-
+            
     def prep_trial(self):
         # reset variables
         self.invalid_trial = 0
@@ -255,7 +254,7 @@ class ERPMatrix(VisualP300):
         self.textrow.text = word # Set new word
         self.textrow.highlight = [self.current_letter]  # highlight current letter
         self.textrow.refresh()
-        # Delete old flash sequence & make new random sequence
+        # Delete old flash sequence & make new random sequence 
         self.flash_sequence = []
         # Prequel flashes, allowing repetitions
         random_flash_sequence(self, min_dist=self.min_dist, seq_len=11, repetition=True)
@@ -271,8 +270,8 @@ class ERPMatrix(VisualP300):
         target_row = 0                              # Two targets: first is row
         target_col = self.rows                      # second is column, starting after the rows
         # Find target row and column
-        while ind not in indices[target_row]: target_row += 1
-        while ind not in indices[target_col]: target_col += 1
+        while ind not in indices[target_row]: target_row += 1  
+        while ind not in indices[target_col]: target_col += 1  
         self.group_trigger = self.matrix_trigger[:]
         # Modify trigget of target by adding a value
         self.group_trigger[target_row] += self.trigger_target_add
@@ -289,8 +288,8 @@ class ERPMatrix(VisualP300):
             self.et_targetxy = (self.screenWidth / 2, self.screenHeight / 2)
         else:
             # Fixate target
-            self.et_targetxy = self.elements[ind].pos
-
+            self.et_targetxy = self.elements[ind].pos    
+ 
     def pre_stimulus(self):
         # Control eye tracker
         if self.use_eyetracker:
@@ -305,7 +304,7 @@ class ERPMatrix(VisualP300):
             cx, cy = self.et_currentxy[0], self.et_currentxy[1]
             dist = math.sqrt(math.pow(tx - cx, 2) + math.pow(ty - cy, 2))
             #self.et_outside = 0
-            # Check if current fixation is outside the accepted range
+            # Check if current fixation is outside the accepted range 
             if dist > self.et_range:
                 #self.et_outside = 1
                 # Check if the off-fixation is beyond temporal limits
@@ -322,7 +321,7 @@ class ERPMatrix(VisualP300):
         if self.invalid_trial == 0 and (self.stim_state == self.STIM_START_FLASH) and self.group_trigger is not None:
             self.send_parallel(self.group_trigger[self.flash_sequence[self.current_flash]])
             self.log_data()
-
+            
     def post_trial(self):
         if self.invalid_trial == 1:
             self.current_tick = 0
@@ -391,8 +390,8 @@ class ERPMatrix(VisualP300):
             pygame.display.flip()
             pygame.time.wait(100)
         self.flashcount = int(text)
-
-
+            
+            
     def log_data(self):
         """
         Structure of logfile
@@ -420,8 +419,8 @@ class ERPMatrix(VisualP300):
                 items.append(str(self.et_duration))
                 #items.append(str(self.et_outside))
             line = "\t".join(items)
-            self.datalines.append(line)
-
+            self.datalines.append(line) 
+    
     def flush_data(self):
         # Writes the data into the data logfile
         for line in self.datalines:

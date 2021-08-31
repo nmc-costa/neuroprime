@@ -23,23 +23,23 @@ from FeedbackBase.MainloopFeedback import MainloopFeedback
 
 
 class MainloopFeedbackTestCase(unittest.TestCase):
-
+    
     def setUp(self):
         self.fb = MainloopFeedback()
         self.init()
-
+    
     def tearDown(self):
         self.quit(1)
-
+    
     def testPlayQuit(self):
         """Mainloop Feedback should handle: init + play + quit."""
         self.play()
         self.assertTrue(self.quit())
-
+        
     def testQuit(self):
         """Mainloop Feedback should handle: init + quit."""
         self.assertTrue(self.quit())
-
+        
     def testQuitQuit(self):
         """Mainloop Feedback should handle: init + quit + quit."""
         self.assertTrue(self.quit())
@@ -56,7 +56,7 @@ class MainloopFeedbackTestCase(unittest.TestCase):
         self.pause()
         self.stop()
         self.assertTrue(self.quit())
-
+        
     def testPlayPausePauseStopQuit(self):
         """Mainloop Feedback should handle: init + play + pause + pause + stop + quit."""
         self.play()
@@ -71,7 +71,7 @@ class MainloopFeedbackTestCase(unittest.TestCase):
 
     def play(self, timeout=-1):
         return self.call_async(self.fb.on_play, timeout)
-
+        
     def pause(self, timeout=None):
         return self.call_async(self.fb.on_pause, timeout)
 
@@ -80,13 +80,13 @@ class MainloopFeedbackTestCase(unittest.TestCase):
 
     def quit(self, timeout=None):
         return self.call_async(self.fb.on_quit, timeout)
-
+    
     def call_async(self, mytarget, timeout=None):
         """Call the method in a seperate thread and join.
-
+        
         If a timeout is given join waits timeout seconds otherwise it waits
         until the thread quits itself.
-
+        
         If the timeout is -1 the method returns without joining.
         """
         thread = Thread(target=mytarget)
@@ -104,6 +104,6 @@ def suite():
 def main():
     runner = unittest.TextTestRunner()
     runner.run(suite())
-
+    
 if __name__ == "__main__":
     main()

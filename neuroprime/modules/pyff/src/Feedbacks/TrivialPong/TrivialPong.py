@@ -18,8 +18,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 """Trivial Pong BCI Feedback."""
-import sys
-sys.path.append("../../")
+
 
 import os
 

@@ -23,10 +23,6 @@
 """BrainPong BCI Feedback."""
 
 
-
-import sys
-# Get src path
-sys.path.append("../../")  # appending src folder to the path
 import random
 import os
 

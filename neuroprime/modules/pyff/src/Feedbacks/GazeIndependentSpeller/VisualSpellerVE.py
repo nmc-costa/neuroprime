@@ -23,9 +23,7 @@ Created on Mar 23, 2010
 Serves as base class for spellers such as CakeSpeller and CenterSpeller.
 '''
 
-import sys
-# Get src path
-sys.path.append("../../")  # appending src folder to the path
+
 
 from time import time, clock
 from FeedbackBase.MainloopFeedback import MainloopFeedback

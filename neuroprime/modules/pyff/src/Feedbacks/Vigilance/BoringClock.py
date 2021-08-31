@@ -33,8 +33,6 @@ Button press: 9
 """
 
 import sys,os,random,time
-# Get src path
-sys.path.append("../../")  # appending src folder to the path
 import pygame
 from FeedbackBase.MainloopFeedback import MainloopFeedback
 from lib.P300Layout import CircularLayout
