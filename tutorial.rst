@@ -1,20 +1,25 @@
 .. -*- mode: rst -*-
 
+
+SIMULATE TUTORIAL (test if everything is  working)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+neuroprime.src.batchs.start_bci_simulate.bat
+
+
 SIGNAL PRESENTATION TUTORIAL
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1.1 Start Pyff version 2012.6
 ------------------------
 1.2.Start new python shell in the appropriate environment
     terminal:
-        $ source activate pyffEV
+        $ source activate neuroprime
         $ cd '..yourpathphdproject/maincode/modules/pyff'
         $ python FeedbackController.py --protocol=json --additional-feedback-path="path to feedbacks folder"  # because wyrm needs to comunicate in JSON format
 
     OR
 
     Bash script start_pyff:
-        1.Update paths of bash scripts
-        2.Start bash scripts
+        2.start_pyff_windows
 
     WARNING: Preferebly use the batch - because it adds the necessary feedbacks folder
 
@@ -27,7 +32,7 @@ SIGNAL PRESENTATION TUTORIAL
 
 2. Use Psychopy instead of Pyff(TODO)
 -----------------------------------
-2.1 Install standalone version, or add to the requirements_phdEV.txt the necessary modules(see page online) (TODO: PSYCHOPY still needs development)
+2.1 Install standalone version, or add to the requirements.txt the necessary modules(see page online) (TODO: PSYCHOPY still needs development)
     2.1.2 Easy way(TODO):
         1.Create in builder the tasks;
         2.Export python code;
@@ -77,7 +82,7 @@ The chunk size trades off latency vs. network overhead, so we suggest to allow t
 Change montage according to server chs info
 
 
-3. Simulate amplifier
+Simulate amplifier (For testing)
 ----------------------
 **LSL**
     Replay data:
@@ -93,13 +98,13 @@ SIGNAL PROCESSING AND CLASSIFICATION TUTORIAL - START EXPERIMENT
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1.1 Start Wyrm and mushu
 ------------------------
-$ activate phdEV
-$ cd '..yourpath/phdproject/maincode/src/)'
-$ python bci.py
+$ activate neuroprime
+$ cd '..yourpath/neuroprime/src/brain_interfaces/e2_bci)'
+$ python e2_bci.py
 
 Or
 
-start_bci.bat
+start_bci_windows.bat (note can only be done after start signal acquition and presentation)
 
 
 What it will do the bci.py:

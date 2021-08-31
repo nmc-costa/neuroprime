@@ -18,7 +18,13 @@ Framework for EEG Neurofeedback in python. Needed for simple experiment depoilme
 ## Installation
 Please follow requirements folder.
 
-Follow the tutorial jupyter file for installation and testing (TODO)
+## Tutorials
+
+TOOBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
+
+Follow tutorial.rst to know how start signal_presentation, signal_acquisition and signal_processing
+
+Follow the tutorial.ipynb jupyter file for installation and testing (TODO)
 
 ## Citations
 If you use NeuroPrime for anything We humbly ask you to cite us:
