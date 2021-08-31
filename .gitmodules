@@ -8,3 +8,12 @@
 	path = neuroprime/modules/LSL-actiCHamp
 	url = https://github.com/brain-products/LSL-actiCHamp.git
 
+[submodule "neuroprime/neuroprime/modules/LSL-BrainVisionRDA"]
+	path = neuroprime/neuroprime/modules/LSL-BrainVisionRDA
+	url = https://github.com/brain-products/LSL-BrainVisionRDA.git
+[submodule "neuroprime/neuroprime/modules/LSL-actiCHamp"]
+	path = neuroprime/neuroprime/modules/LSL-actiCHamp
+	url = https://github.com/brain-products/LSL-actiCHamp.git
+[submodule "neuroprime/neuroprime/modules/pyff"]
+	path = neuroprime/neuroprime/modules/pyff
+	url = https://github.com/bbci/pyff.git
