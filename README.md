@@ -17,7 +17,11 @@ Framework for EEG Neurofeedback in python. Needed for simple experiment deployme
 
 ## Installation
 
-Follow the tutorial.ipynb jupyter file for installation and testing (TODO)
+Follow the tutorial.ipynb jupyter file for installation.
+
+The tutorial goes through the simulation and testing of the toolbox using Experiment 2 BCI (e2_BCI). 
+
+Results of Experiment 2 are published in paper "A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game" (https://www.mdpi.com/2076-3417/11/16/7725). Using e2_BCI you can replicate and validate our results.
 
 ## Toolbox Architecture
 
