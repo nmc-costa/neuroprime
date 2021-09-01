@@ -25,8 +25,6 @@ call activate neuroprime
 REM SIMULATE SIGNAL ACQUISITION - REPLAY DATA ********
 REM EEG ***
 echo "START EEG FILE STREAM PLAYER CONSOLE"
-start "FILE STREAM PLAYER CONSOLE" cmd /c python "%src_path%utils\simulate\file_stream_player.py"
-timeout /T 5 /nobreak >nul
-
+start "FILE STREAM PLAYER CONSOLE" cmd /c python "%src_path%utils\simulate\file_stream_player.py" 
 exit
 

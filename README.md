@@ -16,16 +16,22 @@ NeuroPrime was built on Python open source language, synthesizing while using th
 Framework for EEG Neurofeedback in python. Needed for simple experiment depoilment and future online machine learning.
 
 ## Installation
-Please follow requirements folder.
-
-## Tutorials
-
-TOOBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
-
-Follow tutorial.rst to know how start signal_presentation, signal_acquisition and signal_processing
 
 Follow the tutorial.ipynb jupyter file for installation and testing (TODO)
 
+## Toolbox Architecture
+
+TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
+
+## TODO
+
+- 1. Update to Python 3. 
+    - 1.1. NeuroPrime is ready for Python 3. However some of the external packages, especially Pyff, are still python 2.7 packaged dependent. As such we decided to conform to the same environment.
+    - 1.2. Psychopy is Python 3 compliant, and the signal presentation will need to be fully updated to this package.
+- 2. Continually clean code, conform to style and update documentation.
+- 3. Further standardize upper and lowercase variables
+    
+    
 ## Citations
 If you use NeuroPrime for anything We humbly ask you to cite us:
 ```bibtex
