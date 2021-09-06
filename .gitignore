@@ -2,5 +2,6 @@
 *.pyc
 *.pt
 *.pth
-*.eeg-info
+*.egg-info
+.idea
 .DS_Store
