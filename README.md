@@ -30,9 +30,10 @@ TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
 ## TODO
 
 - 1. Update to Python 3. 
-    - 1.1. NeuroPrime is ready for Python 3. However some of the external packages, especially Pyff, are still python 2.7 packaged dependent. As such we decided to conform to the same environment.
+    - 1.1. NeuroPrime is ready for Python 3. However some of the external packages, especially Pyff, are still python 2.7 package dependent. As such we decided to conform to the same environment.
     - 1.2. Psychopy is Python 3 compliant, and the signal presentation will need to be fully updated to this package.
-- 2. Continually clean code, conform to style and update documentation.
+    - 1.3. Neurodecode (https://github.com/dbdq/neurodecode) is another great BCI package that can support the transition to Python 3, as they have signal acquisition and signal processing using only MNE and Pylsl in Python 3
+.- 2. Continually clean code, conform to style and update documentation.
 - 3. Further standardize upper and lowercase variables
     
     
