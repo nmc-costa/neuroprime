@@ -40,6 +40,16 @@ TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
 ## Citations
 If you use NeuroPrime for anything We humbly ask you to cite us:
 ```bibtex
+@inproceedings{DaCosta2021,
+  author={Da Costa, Nuno M. C. and Bicho, Estela G. and Dias, Nuno S.},
+  booktitle={2021 IEEE 9th International Conference on Serious Games and Applications for Health(SeGAH)}, 
+  title={NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-8},
+  doi={10.1109/SEGAH52098.2021.9551893}}
+
 @article{Costa2021,
 author = {da Costa, Nuno M. C. and Bicho, Estela and Ferreira, Flora and Vilhena, Estela and Dias, Nuno S.},
 doi = {10.3390/APP11167725},
