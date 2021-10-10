@@ -21,13 +21,13 @@ Follow the tutorial.ipynb jupyter file for installation.
 
 The tutorial goes through the simulation and testing of the toolbox using Experiment 2 BCI (e2_BCI). 
 
-Results of Experiment 2 are published in paper ["A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game"] (https://www.mdpi.com/2076-3417/11/16/7725). Using e2_BCI you can replicate and validate our results.
+Results of Experiment 2 are published in paper ["A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game"](https://www.mdpi.com/2076-3417/11/16/7725). Using e2_BCI you can replicate and validate our results.
 
 ## Toolbox Architecture
 
 TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
 
-The following paper discuss the theoretical framework foundations. ["NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols"] (https://ieeexplore.ieee.org/document/9551893).
+The following paper discuss the theoretical framework foundations. ["NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols"](https://ieeexplore.ieee.org/document/9551893).
 
 ## TODO
 
