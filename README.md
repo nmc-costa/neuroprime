@@ -21,20 +21,20 @@ Follow the tutorial.ipynb jupyter file for installation.
 
 The tutorial goes through the simulation and testing of the toolbox using Experiment 2 BCI (e2_BCI). 
 
-Results of Experiment 2 are published in paper "A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game" (https://www.mdpi.com/2076-3417/11/16/7725). Using e2_BCI you can replicate and validate our results.
+Results of Experiment 2 are published in paper ["A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game"] (https://www.mdpi.com/2076-3417/11/16/7725). Using e2_BCI you can replicate and validate our results.
 
 ## Toolbox Architecture
 
 TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
 
-The following paper discuss the theoretical framework foundations. "NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols" (https://ieeexplore.ieee.org/document/9551893).
+The following paper discuss the theoretical framework foundations. ["NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols"] (https://ieeexplore.ieee.org/document/9551893).
 
 ## TODO
 
 - 1. Update to Python 3. 
     - 1.1. NeuroPrime is ready for Python 3. However some of the external packages, especially Pyff, are still python 2.7 package dependent. As such we decided to conform to the same environment.
     - 1.2. Psychopy is Python 3 compliant, and the signal presentation will need to be fully updated to this package.
-    - 1.3. Neurodecode (https://github.com/dbdq/neurodecode) is another great BCI package that can support the transition to Python 3, as they have signal acquisition and signal processing using only MNE and Pylsl in Python 3
+    - 1.3. [Neurodecode] (https://github.com/dbdq/neurodecode) is another great BCI package that can support the transition to Python 3, as they have signal acquisition and signal processing using only MNE and Pylsl in Python 3
 - 2. Continually clean code, conform to style and update documentation.
 - 3. Further standardize upper and lowercase variables
     
