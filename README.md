@@ -17,7 +17,7 @@ Framework for EEG Neurofeedback in python. Needed for simple experiment deployme
 
 ## Installation
 
-Follow the tutorial.ipynb jupyter file for installation.
+Follow the [tutorial.ipynb](https://github.com/nmc-costa/neuroprime/blob/master/tutorial.ipynb) jupyter file for installation.
 
 The tutorial goes through the simulation and testing of the toolbox using Experiment 2 BCI (e2_BCI). 
 
