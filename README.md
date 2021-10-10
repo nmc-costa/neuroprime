@@ -27,6 +27,8 @@ Results of Experiment 2 are published in paper "A Multivariate Randomized Contro
 
 TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
 
+The following paper discuss the theoretical framework foundations. "NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols" (https://ieeexplore.ieee.org/document/9551893).
+
 ## TODO
 
 - 1. Update to Python 3. 
