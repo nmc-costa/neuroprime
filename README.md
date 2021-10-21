@@ -1,5 +1,5 @@
 # NeuroPrime
-A framework for real-time HCI/BCI. Specifically developed for advanced human-computer assisted self-regulation of Neurofeedback.
+A framework for real-time HCI/BCI. Specifically developed for advanced research of human-computer assisted self-regulation of Neurofeedback.
 
 
 Simplicity and reusability are the foundation of NeuroPrime package, as is intended to be an open source project to be used by the neuroscience community. It is also intended to be a BCI hub that evolves with a synthesis of the best packages the python community has to offer in terms of signal processing, signal presentation and signal acquisition. Therefore, it should provide an easy and simple structure to update and connect new packages within the same design.
@@ -17,21 +17,24 @@ Framework for EEG Neurofeedback in python. Needed for simple experiment deployme
 
 ## Installation
 
-Follow the tutorial.ipynb jupyter file for installation.
+Follow the [tutorial.ipynb](https://github.com/nmc-costa/neuroprime/blob/master/tutorial.ipynb) jupyter file for installation.
 
 The tutorial goes through the simulation and testing of the toolbox using Experiment 2 BCI (e2_BCI). 
 
-Results of Experiment 2 are published in paper "A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game" (https://www.mdpi.com/2076-3417/11/16/7725). Using e2_BCI you can replicate and validate our results.
+Results of Experiment 2 are published in paper ["A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game"](https://www.mdpi.com/2076-3417/11/16/7725). Using e2_BCI you can replicate and validate our results.
 
 ## Toolbox Architecture
 
 TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
 
+The following paper discuss the theoretical framework foundations. ["NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols"](https://ieeexplore.ieee.org/document/9551893).
+
 ## TODO
 
 - 1. Update to Python 3. 
-    - 1.1. NeuroPrime is ready for Python 3. However some of the external packages, especially Pyff, are still python 2.7 packaged dependent. As such we decided to conform to the same environment.
+    - 1.1. NeuroPrime is ready for Python 3. However some of the external packages, especially Pyff, are still python 2.7 package dependent. As such we decided to conform to the same environment.
     - 1.2. Psychopy is Python 3 compliant, and the signal presentation will need to be fully updated to this package.
+    - 1.3. [Neurodecode](https://github.com/dbdq/neurodecode) is another great BCI package that can support the transition to Python 3, as they have signal acquisition and signal processing using only MNE and Pylsl in Python 3
 - 2. Continually clean code, conform to style and update documentation.
 - 3. Further standardize upper and lowercase variables
     
@@ -39,6 +42,16 @@ TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
 ## Citations
 If you use NeuroPrime for anything We humbly ask you to cite us:
 ```bibtex
+@inproceedings{DaCosta2021,
+  author={Da Costa, Nuno M. C. and Bicho, Estela G. and Dias, Nuno S.},
+  booktitle={2021 IEEE 9th International Conference on Serious Games and Applications for Health(SeGAH)}, 
+  title={NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-8},
+  doi={10.1109/SEGAH52098.2021.9551893}}
+
 @article{Costa2021,
 author = {da Costa, Nuno M. C. and Bicho, Estela and Ferreira, Flora and Vilhena, Estela and Dias, Nuno S.},
 doi = {10.3390/APP11167725},
