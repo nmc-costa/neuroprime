@@ -15,7 +15,7 @@ NeuroPrime was built on Python open source language, synthesizing while using th
 
 Framework for EEG Neurofeedback in python. Needed for simple experiment deployment and future online machine learning. 
 
-For more on BCIs go to the epository [awesome-BCI](https://github.com/NeuroTechX/awesome-bci).
+For more on BCIs go to the repository [awesome-BCI](https://github.com/NeuroTechX/awesome-bci).
 
 ## Installation
 
