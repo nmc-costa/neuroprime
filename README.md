@@ -2,7 +2,7 @@
 A framework for real-time HCI/BCI. Specifically developed for advanced research of human-computer assisted self-regulation of Neurofeedback.
 
 
-Simplicity and reusability are the foundation of NeuroPrime package, as is intended to be an open source project to be used by the neuroscience community. It is also intended to be a BCI hub that evolves with a synthesis of the best packages the python community has to offer in terms of signal processing, signal presentation and signal acquisition. Therefore, it should provide an easy and simple structure to update and connect new packages within the same design.
+Simplicity and reusability are the foundation of NeuroPrime package, as is intended to be an open source project to be used by the neuroscience community. It is also intended to be a BCI hub that evolves with a synthesis of the best packages the python community has to offer in terms of signal processing, signal presentation and signal acquisition (go to the repository [awesome-BCI](https://github.com/NeuroTechX/awesome-bci) for more on BCIs). Therefore, it should provide an easy and simple structure to update and connect new packages within the same design.
 
 ## Basic layout
 ![](neuroprime_diagram.png)
