@@ -31,6 +31,10 @@ TOOlBOX_ARCHITECTURE.pdf gives a detailed overview of the toolbox.
 
 The following paper discuss the theoretical framework foundations. ["NeuroPrime: a Pythonic framework for the priming of brain states in self-regulation protocols"](https://ieeexplore.ieee.org/document/9551893).
 
+## E2 Data Analysis Example  
+
+Follow the [e2_db_tutorial_v10.ipynb]() jupyter file for installation.
+
 ## TODO
 
 - 1. Update to Python 3. 
