@@ -33,7 +33,7 @@ The following paper discuss the theoretical framework foundations. ["NeuroPrime:
 
 ## E2 Data Analysis Example  
 
-Follow the [e2_db_tutorial_v10.ipynb]() jupyter file for installation.
+Follow the [e2_db_tutorial_v10.ipynb](https://github.com/nmc-costa/neuroprime/blob/master/neuroprime/src/utils/data_analysis/e2_pipe/database_tutorial/e2_db_tutorial_v10.ipynb) jupyter file for data analysis. The excel file has only alpha as a sample.
 
 ## TODO
 
