@@ -51,7 +51,7 @@ If you use NeuroPrime for anything We humbly ask you to cite us:
 @thesis{costa2021self,
   title={Self-regulation learning in neurofeedback training: effects of a human-computer framework to prime subjects with external stimulation, like mindfulness},
   author={Da Costa, Nuno M. C.},
-  supervisors={Bicho, Estela G. and Dias, Nuno S.}
+  supervisors={Bicho, Estela G. and Dias, Nuno S.},
   url = {https://www.mdpi.com/2076-3417/11/16/7725},
   year={2021}
 }
