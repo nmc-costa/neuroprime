@@ -23,7 +23,7 @@ Follow the [tutorial.ipynb](https://github.com/nmc-costa/neuroprime/blob/master/
 
 The tutorial goes through the simulation and testing of the toolbox using Experiment 2 BCI (e2_BCI). 
 
-Results of Experiment 2 are published in paper ["A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game"](https://www.mdpi.com/2076-3417/11/16/7725). Using e2_BCI you can replicate and validate our results.
+Results of Experiment 2 are published in paper ["A Multivariate Randomized Controlled Experiment about the Effects of Mindfulness Priming on EEG Neurofeedback Self-Regulation Serious Game"](https://www.mdpi.com/2076-3417/11/16/7725) and in more detail in the thesis ["Self-regulation learning in neurofeedback training: effects of a human-computer framework to prime subjects with external stimulation, like mindfulness"](https://hdl.handle.net/1822/75752). Using e2_BCI you can replicate and validate our results.
 
 ## Toolbox Architecture
 
