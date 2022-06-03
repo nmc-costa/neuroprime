@@ -48,6 +48,14 @@ Follow the [e2_db_tutorial_v10.ipynb](https://github.com/nmc-costa/neuroprime/bl
 ## Citations
 If you use NeuroPrime for anything We humbly ask you to cite us:
 ```bibtex
+@thesis{costa2021self,
+  title={Self-regulation learning in neurofeedback training: effects of a human-computer framework to prime subjects with external stimulation, like mindfulness},
+  author={Da Costa, Nuno M. C.},
+  supervisors={Bicho, Estela G. and Dias, Nuno S.}
+  url = {https://www.mdpi.com/2076-3417/11/16/7725},
+  year={2021}
+}
+
 @inproceedings{DaCosta2021,
   author={Da Costa, Nuno M. C. and Bicho, Estela G. and Dias, Nuno S.},
   booktitle={2021 IEEE 9th International Conference on Serious Games and Applications for Health(SeGAH)}, 
