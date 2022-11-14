@@ -1,8 +1,8 @@
 #HOW TO INSTALL IN WINDOWS 11 
 
-conda env create -f neuroprime.yml
+conda env create -f windows.yml
 
-#If some packages fail or pip fail, please install all the following(for errors followed the detailed steps):
+#If some pip fail, please install all the following(for errors followed the detailed steps):
 pip install pygame pyparallel pypiwin32 mne==0.17.* mushu wyrm pylsl pyusb nibabel
 pip install visionegg multiprocessing
 pip install psychopy --no-deps
